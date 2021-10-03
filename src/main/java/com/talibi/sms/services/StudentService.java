@@ -1,5 +1,9 @@
 package com.talibi.sms.services;
 
-public interface StudentService {
+import java.util.List;
 
+import com.talibi.sms.models.Student;
+
+public interface StudentService {
+	List<Student> getAllStudents();
 }
