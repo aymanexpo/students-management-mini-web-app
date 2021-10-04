@@ -1,12 +1,12 @@
 package com.talibi.sms;
 
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.talibi.sms.models.Student;
-import com.talibi.sms.repositories.StudentRepository;
+//import com.talibi.sms.models.Student;
+//import com.talibi.sms.repositories.StudentRepository;
 
 @SpringBootApplication
 public class StudentsManagementMiniWebAppApplication implements CommandLineRunner{
@@ -15,7 +15,7 @@ public class StudentsManagementMiniWebAppApplication implements CommandLineRunne
 		SpringApplication.run(StudentsManagementMiniWebAppApplication.class, args);
 	}
 
-	@Autowired private StudentRepository studentRepository;
+	//@Autowired private StudentRepository studentRepository;
 	@Override
 	public void run(String... args) throws Exception {
 		/*Student student1 = new Student("Aymane", "Talibi", "aymanetalibi@gmail.com");
