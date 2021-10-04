@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.talibi.sms.models.Student;
@@ -35,6 +36,24 @@ public class StudentController {
 	@PostMapping("/students")
 	public String saveNewStudent(@ModelAttribute("student") Student student) {
 		studentService.saveNewStudent(student);
+		return "redirect:/students";
+	}
+	
+	@GetMapping("/students/edit/{id}")
+	public String editStudents(@PathVariable Long id, Model model) {
+		model.addAttribute("student", studentService.getStudentById(id));
+		return "editStudent";
+	}
+	
+	@PostMapping("/students/{id}")
+	public String updateStudent(@PathVariable Long id, @ModelAttribute("student") Student student,Model model) {
+		Student dbStudent = studentService.getStudentById(id);
+		dbStudent.setId(id);
+		dbStudent.setFirstName(student.getFirstName());
+		dbStudent.setLastName(student.getLastName());
+		dbStudent.setEmail(student.getEmail());
+		
+		studentService.updateStudent(dbStudent);
 		return "redirect:/students";
 	}
 }
